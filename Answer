@@ -1,0 +1,10 @@
+CREATE TABLE employees (
+  id INTEGER NOT NULL PRIMARY KEY,
+  managerId INTEGER REFERENCES employees(id), 
+  name VARCHAR(30) NOT NULL
+);
+
+INSERT INTO employees(id, managerId, name) VALUES(1, NULL, 'John');
+INSERT INTO employees(id, managerId, name) VALUES(2, 1, 'Mike');
+
+SELECT name FROM employees WHERE id != managerId;
